@@ -362,7 +362,13 @@ func readLDAPObjectImpl(d *schema.ResourceData, meta interface{}, updateState bo
 
 // computes the hash of the map representing an attribute in the attributes set
 func attributeHash(v interface{}) int {
-	m := v.(map[string]interface{})
+	m, ok := v.(map[string]interface{})
+
+	// In case of calculated fields, v might be nil.
+	if !ok {
+		return hashcode.String("nil")
+	}
+
 	var buffer bytes.Buffer
 	buffer.WriteString("map {")
 	for k, v := range m {
