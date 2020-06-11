@@ -1,12 +1,11 @@
 package main
 
 import (
-	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
-	"github.com/hashicorp/terraform-plugin-sdk/terraform"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 )
 
 // Provider creates a new LDAP provider.
-func Provider() terraform.ResourceProvider {
+func Provider() *schema.Provider {
 	return &schema.Provider{
 		Schema: map[string]*schema.Schema{
 			"ldap_host": {
@@ -43,6 +42,10 @@ func Provider() terraform.ResourceProvider {
 
 		ResourcesMap: map[string]*schema.Resource{
 			"ldap_object": resourceLDAPObject(),
+		},
+
+		DataSourcesMap: map[string]*schema.Resource{
+			"ldap_object": dataLDAPObject(),
 		},
 
 		ConfigureFunc: configureProvider,
