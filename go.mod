@@ -1,4 +1,4 @@
-module github.com/elastic-infra/terraform-provider-ldap
+module github.com/blamarvt/terraform-provider-ldap
 
 go 1.14
 
