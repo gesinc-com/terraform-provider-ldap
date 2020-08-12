@@ -5,7 +5,7 @@
 You can easily install the latest version with the following:
 
 ```shell
-go get -u github.com/blamarvt/terraform-provider-ldap
+go get -u github.com/omnivore/terraform-provider-ldap
 ```
 
 Then add the plugin to your local `.terraformrc`:
