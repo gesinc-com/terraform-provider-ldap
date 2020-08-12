@@ -1,4 +1,4 @@
-module github.com/blamarvt/terraform-provider-ldap
+module github.com/omnivore/terraform-provider-ldap
 
 go 1.14
 
